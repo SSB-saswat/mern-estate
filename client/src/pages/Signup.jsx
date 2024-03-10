@@ -51,25 +51,25 @@ export default function Signup() {
         <input
           type="text"
           placeholder="username"
+          id="username"
           className="border p-3 rounded-lg"
           onChange={handleChange}
-          id="username"
         />
 
         <input
           type="text"
           placeholder="email"
+          id="email"
           className="border p-3 rounded-lg"
           onChange={handleChange}
-          id="email"
         />
 
         <input
-          type="text"
+          type="password"
           placeholder="password"
+          id="password"
           className="border p-3 rounded-lg"
           onChange={handleChange}
-          id="password"
         />
 
         <button
