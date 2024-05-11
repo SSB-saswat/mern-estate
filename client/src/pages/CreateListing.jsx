@@ -16,7 +16,7 @@ export default function CreateListing() {
   // console.log(files);
 
   const [formData, setFormData] = useState({
-    iamgeUrls: [],
+    imageUrls: [],
     name: "",
     description: "",
     address: "",
@@ -41,7 +41,7 @@ export default function CreateListing() {
       setImageUploadError("You must upload atleast one image!");
     } else if (
       files.length > 0 &&
-      files.length + formData.iamgeUrls.length < 7
+      files.length + formData.imageUrls.length < 7
     ) {
       setUploading(true);
       setImageUploadError(false);
@@ -54,7 +54,7 @@ export default function CreateListing() {
         .then((urls) => {
           setFormData({
             ...formData,
-            iamgeUrls: formData.iamgeUrls.concat(urls),
+            imageUrls: formData.imageUrls.concat(urls),
           });
           setImageUploadError(false);
           setUploading(false);
@@ -97,7 +97,7 @@ export default function CreateListing() {
   const handleRemoveImage = (index) => {
     setFormData({
       ...formData,
-      iamgeUrls: formData.iamgeUrls.filter((_, i) => i !== index),
+      imageUrls: formData.imageUrls.filter((_, i) => i !== index),
     });
   };
 
@@ -126,7 +126,7 @@ export default function CreateListing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (formData.iamgeUrls.length < 1)
+      if (formData.imageUrls.length < 1)
         return setError("You must upload atleast one image");
 
       if (+formData.regularPrice < +formData.discountPrice)
@@ -342,8 +342,8 @@ export default function CreateListing() {
             {imageUploadError && imageUploadError}
           </p>
 
-          {formData.iamgeUrls.length > 0 &&
-            formData.iamgeUrls.map((url, index) => (
+          {formData.imageUrls.length > 0 &&
+            formData.imageUrls.map((url, index) => (
               <div
                 key={index}
                 className="flex justify-between p-3 border items-center"
